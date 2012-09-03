@@ -1,0 +1,388 @@
+
+
+
+#### Mon Sep  3 04:29:41 EDT 2012
+
+ ### catalyst
+  mjp@uberwald:~/src/heroku/perloku$ sudo apt-get install libcatalyst-perl libcatalyst-engine-apache-perl
+   ...
+   The following NEW packages will be installed:
+     libalgorithm-c3-perl libaliased-perl libapache2-mod-perl2
+     libb-hooks-endofscope-perl libcarp-clan-perl libcatalyst-engine-apache-perl
+     libcatalyst-perl libcgi-simple-perl libclass-c3-adopt-next-perl
+     libclass-c3-perl libclass-load-perl libclass-load-xs-perl
+     libdata-optlist-perl libdevel-globaldestruction-perl libdevel-symdump-perl
+     libeval-closure-perl libextutils-autoinstall-perl libfile-modified-perl
+     libfile-slurp-perl libgetopt-long-descriptive-perl
+     libhttp-request-ascgi-perl libio-stringy-perl liblist-moreutils-perl
+     libmodule-implementation-perl libmodule-runtime-perl libmoose-perl
+     libmoosex-emulate-class-accessor-fast-perl libmoosex-getopt-perl
+     libmoosex-methodattributes-perl libmoosex-role-parameterized-perl
+     libmoosex-role-withoverloading-perl libmoosex-types-common-perl
+     libmoosex-types-loadableclass-perl libmoosex-types-perl libmro-compat-perl
+     libnamespace-autoclean-perl libnamespace-clean-perl
+     libpackage-deprecationmanager-perl libpackage-stash-perl
+     libpackage-stash-xs-perl libparams-classify-perl libparams-validate-perl
+     libplack-middleware-reverseproxy-perl libplack-test-externalserver-perl
+     libscope-upper-perl libstring-rewriteprefix-perl libsub-exporter-perl
+     libsub-exporter-progressive-perl libsub-identify-perl libsub-install-perl
+     libsub-uplevel-perl libtask-weaken-perl libtest-exception-perl
+     libtest-mockobject-perl libtest-warn-perl libtext-simpletable-perl
+     libtree-dagnode-perl libtree-simple-perl libtree-simple-visitorfactory-perl
+     libuniversal-can-perl libuniversal-isa-perl libvariable-magic-perl
+   0 upgraded, 62 newly installed, 0 to remove and 2 not upgraded.
+   ...
+  ##  follow: http://search.cpan.org/~zarquon/Catalyst-Manual-5.9004/lib/Catalyst/Manual/Tutorial.pod
+   #   http://search.cpan.org/~zarquon/Catalyst-Manual-5.9004/lib/Catalyst/Manual/Tutorial/01_Intro.pod
+mjp@uberwald:~/src/heroku/perloku$ perl -MCatalyst::Devel -e 'print "$Catalyst::Devel::VERSION\n";'
+ Can't locate Catalyst/Devel.pm in @INC (@INC contains: /etc/perl /usr/local/lib/perl/5.14.2 /usr/local/share/perl/5.14.2 /usr/lib/perl5 /usr/share/perl5 /usr/lib/perl/5.14 /usr/share/perl/5.14 /usr/local/lib/site_perl .).
+ BEGIN failed--compilation aborted.
+mjp@uberwald:~/src/heroku/perloku$ sudo apt-get install libcatalyst-devel-perl libcatalyst-manual-perl
+ ...
+ The following NEW packages will be installed:
+   libcatalyst-devel-perl libcatalyst-manual-perl libconfig-general-perl
+   libdevel-caller-perl libfile-changenotify-perl
+   libmoosex-params-validate-perl libmoosex-semiaffordanceaccessor-perl
+   libpadwalker-perl
+ 0 upgraded, 8 newly installed, 0 to remove and 2 not upgraded.
+ ...
+mjp@uberwald:~/src/heroku/perloku$  perl -MCatalyst::Devel -e 'print "$Catalyst::Devel::VERSION\n";'
+ 1.37
+cat ~/src/heroku/perloku/cpanfile
+ requires 'Plack', 0.9980;
+ requires 'Starman', 0.2000;
+ requires 'Catalyst::Devel', 1.37;
+mjp@uberwald:~/src/heroku/perloku$ catalyst.pl Hello
+ created "Hello"
+ created "Hello/script"
+ created "Hello/lib"
+ created "Hello/root"
+ created "Hello/root/static"
+ created "Hello/root/static/images"
+ created "Hello/t"
+ created "Hello/lib/Hello"
+ created "Hello/lib/Hello/Model"
+ created "Hello/lib/Hello/View"
+ created "Hello/lib/Hello/Controller"
+ created "Hello/hello.conf"
+ created "Hello/hello.psgi"
+ created "Hello/lib/Hello.pm"
+ created "Hello/lib/Hello/Controller/Root.pm"
+ created "Hello/README"
+ created "Hello/Changes"
+ created "Hello/t/01app.t"
+ created "Hello/t/02pod.t"
+ created "Hello/t/03podcoverage.t"
+ created "Hello/root/static/images/catalyst_logo.png"
+ created "Hello/root/static/images/btn_120x50_built.png"
+ created "Hello/root/static/images/btn_120x50_built_shadow.png"
+ created "Hello/root/static/images/btn_120x50_powered.png"
+ created "Hello/root/static/images/btn_120x50_powered_shadow.png"
+ created "Hello/root/static/images/btn_88x31_built.png"
+ created "Hello/root/static/images/btn_88x31_built_shadow.png"
+ created "Hello/root/static/images/btn_88x31_powered.png"
+ created "Hello/root/static/images/btn_88x31_powered_shadow.png"
+ created "Hello/root/favicon.ico"
+ created "Hello/Makefile.PL"
+ created "Hello/script/hello_cgi.pl"
+ created "Hello/script/hello_fastcgi.pl"
+ created "Hello/script/hello_server.pl"
+ created "Hello/script/hello_test.pl"
+ created "Hello/script/hello_create.pl"
+ Change to application directory and Run "perl Makefile.PL" to make sure your install is complete
+mjp@uberwald:~/src/heroku/perloku$ cd Hello/
+mjp@uberwald:~/src/heroku/perloku/Hello$ perl Makefile.PL
+ Can't locate inc/Module/Install.pm in @INC (@INC contains: /etc/perl /usr/local/lib/perl/5.14.2 /usr/local/share/perl/5.14.2 /usr/lib/perl5 /usr/share/perl5 /usr/lib/perl/5.14 /usr/share/perl/5.14 /usr/local/lib/site_perl .) at Makefile.PL line 4.
+ BEGIN failed--compilation aborted at Makefile.PL line 4.
+mjp@uberwald:~/src/heroku/perloku/Hello$ sudo apt-get install libmodule-install-perl   libarchive-zip-perl
+ ...
+ The following NEW packages will be installed:
+   libarchive-zip-perl libfile-remove-perl libmodule-install-perl
+   libmodule-scandeps-perl libpar-dist-perl
+ 0 upgraded, 5 newly installed, 0 to remove and 2 not upgraded.
+mjp@uberwald:~/src/heroku/perloku/Hello$ perl Makefile.PL
+ include /home/mjp/src/heroku/perloku/Hello/inc/Module/Install.pm
+ include inc/Module/Install/Metadata.pm
+ include inc/Module/Install/Base.pm
+ include inc/Module/Install/Makefile.pm
+ Cannot determine perl version info from lib/Hello.pm
+ include inc/Module/Install/Catalyst.pm
+ include inc/Module/Install/Include.pm
+ include inc/File/Copy/Recursive.pm
+ *** Module::Install::Catalyst
+ Please run "make catalyst_par" to create the PAR package!
+ *** Module::Install::Catalyst finished.
+ include inc/Module/Install/Scripts.pm
+ include inc/Module/Install/AutoInstall.pm
+ include inc/Module/AutoInstall.pm
+ *** Module::AutoInstall version 1.06
+ *** Checking for Perl dependencies...
+ [Core Features]
+ - Test::More                       ...loaded. (0.98 >= 0.88)
+ - Catalyst::Runtime                ...loaded. (5.90014 >= 5.90014)
+ - Catalyst::Plugin::ConfigLoader   ...missing.
+ - Catalyst::Plugin::Static::Simple ...missing.
+ - Catalyst::Action::RenderView     ...missing.
+ - Moose                            ...loaded. (2.0603)
+ - namespace::autoclean             ...loaded. (0.13)
+ - Config::General                  ...loaded. (2.50)
+ ==> Auto-install the 3 mandatory module(s) from CPAN? [y] 
+ *** Dependencies will be installed the next time you type 'make'.
+     (You may need to do that as the 'root' user.)
+ *** Module::AutoInstall configuration finished.
+ include inc/Module/Install/WriteAll.pm
+ include inc/Module/Install/Win32.pm
+ include inc/Module/Install/Can.pm
+ include inc/Module/Install/Fetch.pm
+ Warning: prerequisite Catalyst::Action::RenderView 0 not found.
+ Warning: prerequisite Catalyst::Plugin::ConfigLoader 0 not found.
+ Warning: prerequisite Catalyst::Plugin::Static::Simple 0 not found.
+ Writing Makefile for Hello
+ Writing MYMETA.yml
+ Writing META.yml
+mjp@uberwald:~/src/heroku/perloku/Hello$ script/hello_server.pl -r &
+ Can't locate Catalyst/Plugin/Static/Simple.pm in @INC (@INC contains: /home/mjp/src/heroku/perloku/Hello/script/../lib /etc/perl /usr/local/lib/perl/5.14.2 /usr/local/share/perl/5.14.2 /usr/lib/perl5 /usr/share/perl5 /usr/lib/perl/5.14 /usr/share/perl/5.14 /usr/local/lib/site_perl .) at /usr/share/perl5/Module/Runtime.pm line 317.
+  at /usr/share/perl5/Module/Runtime.pm line 317
+ Compilation failed in require at /usr/share/perl5/Module/Runtime.pm line 317.
+  at /usr/share/perl5/Catalyst/Script/Server.pm line 177
+mjp@uberwald:~/src/heroku/perloku/Hello$ sudo apt-get -s install libcatalyst-plugin*
+...
+The following NEW packages will be installed:
+  libcatalyst-plugin-log-dispatch-perl libcatalyst-plugin-scheduler-perl
+  libcatalyst-plugin-smarturi-perl libcatalyst-plugin-unicode-encoding-perl
+  libclass-c3-componentised-perl libclass-singleton-perl
+  libdatetime-event-cron-perl libdatetime-locale-perl libdatetime-perl
+  libdatetime-set-perl libdatetime-timezone-perl libfile-find-rule-perl
+  liblog-dispatch-perl libmath-round-perl libnumber-compare-perl
+  libset-crontab-perl libset-infinite-perl libset-scalar-perl
+  libtext-glob-perl libuniversal-require-perl liburi-smarturi-perl
+0 upgraded, 21 newly installed, 0 to remove and 2 not upgraded.
+...
+mjp@uberwald:~/src/heroku/perloku/Hello$ script/hello_server.pl -r &
+ Can't locate Catalyst/Plugin/Static/Simple.pm in @INC (@INC contains: /home/mjp/src/heroku/perloku/Hello/script/../lib /etc/perl /usr/local/lib/perl/5.14.2 /usr/local/share/perl/5.14.2 /usr/lib/perl5 /usr/share/perl5 /usr/lib/perl/5.14 /usr/share/perl/5.14 /usr/local/lib/site_perl .) at /usr/share/perl5/Module/Runtime.pm line 317.
+  at /usr/share/perl5/Module/Runtime.pm line 317
+ Compilation failed in require at /usr/share/perl5/Module/Runtime.pm line 317.
+  at /usr/share/perl5/Catalyst/Script/Server.pm line 177
+mjp@uberwald:~/src/heroku/perloku/Hello$ sudo cpan
+ ...
+ Would you like to configure as much as possible automatically? [yes] 
+ ...
+ What approach do you want?  (Choose 'local::lib', 'sudo' or 'manual')
+  [local::lib] 
+ ...
+ New urllist
+   http://mirror.metrocast.net/cpan/
+   http://cpan.cs.utah.edu/
+   http://www.perl.com/CPAN/
+ 
+ Autoconfiguration complete.
+ 
+ Attempting to bootstrap local::lib...
+ 
+ Writing /root/.cpan/CPAN/MyConfig.pm for bootstrap...
+ commit: wrote '/root/.cpan/CPAN/MyConfig.pm'
+ ...
+ Attempting to create directory /root/perl5
+ 
+ 
+ *** Module::AutoInstall version 1.03
+ *** Checking for Perl dependencies...
+ *** Since we're running under CPAN, I'll just let it take care
+     of the dependency's installation later.
+ [Core Features]
+ - ExtUtils::MakeMaker ...loaded. (6.57_05 >= 6.31)
+ - ExtUtils::Install   ...loaded. (1.56 >= 1.43)
+ - Module::Build       ...loaded. (0.38 >= 0.36)
+ - CPAN                ...loaded. (1.960001 >= 1.82)
+ *** Module::AutoInstall configuration finished.
+ ...
+ local::lib is installed. You must now add the following environment variables
+ to your shell configuration files (or registry, if you are on Windows) and
+ then restart your command line shell and CPAN before installing modules:
+ 
+ Use of uninitialized value $deactivating in numeric eq (==) at /root/perl5/lib/perl5/local/lib.pm line 354.
+ Use of uninitialized value $deactivating in numeric eq (==) at /root/perl5/lib/perl5/local/lib.pm line 356.
+ Use of uninitialized value $interpolate in numeric eq (==) at /root/perl5/lib/perl5/local/lib.pm line 366.
+ export PERL_LOCAL_LIB_ROOT="/root/perl5";
+ export PERL_MB_OPT="--install_base /root/perl5";
+ export PERL_MM_OPT="INSTALL_BASE=/root/perl5";
+ export PERL5LIB="/root/perl5/lib/perl5/x86_64-linux-gnu-thread-multi:/root/perl5/lib/perl5";
+ export PATH="/root/perl5/bin:$PATH";
+ 
+ Would you like me to append that to /root/.bashrc now? [yes] 
+ commit: wrote '/root/.cpan/CPAN/MyConfig.pm'
+cpan[4]> cpan[4]> install Catalyst::Plugin::Static::Simple
+Running install for module 'Catalyst::Plugin::Static::Simple'
+Running make for A/AB/ABRAXXA/Catalyst-Plugin-Static-Simple-0.30.tar.gz
+Fetching with LWP:
+http://mirror.metrocast.net/cpan/authors/id/A/AB/ABRAXXA/Catalyst-Plugin-Static-Simple-0.30.tar.gz
+Fetching with LWP:
+http://mirror.metrocast.net/cpan/authors/id/A/AB/ABRAXXA/CHECKSUMS
+Checksum for /root/.cpan/sources/authors/id/A/AB/ABRAXXA/Catalyst-Plugin-Static-Simple-0.30.tar.gz ok
+
+  CPAN.pm: Going to build A/AB/ABRAXXA/Catalyst-Plugin-Static-Simple-0.30.tar.gz
+
+Cannot determine perl version info from lib/Catalyst/Plugin/Static/Simple.pm
+*** Module::AutoInstall version 1.06
+*** Checking for Perl dependencies...
+*** Since we're running under CPAN, I'll just let it take care
+    of the dependency's installation later.
+[Core Features]
+- Test::More           ...loaded. (0.98)
+- Catalyst::Runtime    ...loaded. (5.90014 >= 5.80008)
+- MIME::Types          ...loaded. (1.35 >= 1.25)
+- Test::More           ...loaded. (0.98)
+- Moose                ...loaded. (2.0603)
+- MooseX::Types        ...loaded. (0.35)
+- namespace::autoclean ...loaded. (0.13)
+*** Module::AutoInstall configuration finished.
+Checking if your kit is complete...
+Looks good
+Writing Makefile for Catalyst::Plugin::Static::Simple
+Writing MYMETA.yml
+cp lib/Catalyst/Plugin/Static/Simple.pm blib/lib/Catalyst/Plugin/Static/Simple.pm
+Manifying blib/man3/Catalyst::Plugin::Static::Simple.3pm
+  ABRAXXA/Catalyst-Plugin-Static-Simple-0.30.tar.gz
+  /usr/bin/make -- OK
+Running make test
+PERL_DL_NONLAZY=1 /usr/bin/perl "-MExtUtils::Command::MM" "-e" "test_harness(0, 'inc', 'blib/lib', 'blib/arch')" t/01use.t t/04static.t t/05dirs.t t/06include_path.t t/07mime_types.t t/08subreq.t t/09ignore_ext.t t/10ignore_dirs.t t/11serve_static.t t/12check_error_scope.t t/20debug.t
+t/01use.t ................ ok
+t/04static.t ............. ok
+t/05dirs.t ............... ok
+t/06include_path.t ....... ok
+t/07mime_types.t ......... ok
+t/08subreq.t ............. ok
+t/09ignore_ext.t ......... ok
+t/10ignore_dirs.t ........ ok
+t/11serve_static.t ....... ok
+t/12check_error_scope.t .. ok
+t/20debug.t .............. ok
+All tests successful.
+Files=11, Tests=60, 14 wallclock secs ( 0.07 usr  0.01 sys +  9.51 cusr  0.51 csys = 10.10 CPU)
+Result: PASS
+  ABRAXXA/Catalyst-Plugin-Static-Simple-0.30.tar.gz
+  /usr/bin/make test -- OK
+Running make install
+Installing /usr/local/share/perl/5.14.2/Catalyst/Plugin/Static/Simple.pm
+Installing /usr/local/man/man3/Catalyst::Plugin::Static::Simple.3pm
+Appending installation info to /usr/local/lib/perl/5.14.2/perllocal.pod
+  ABRAXXA/Catalyst-Plugin-Static-Simple-0.30.tar.gz
+  /usr/bin/make install  -- OK
+
+mjp@uberwald:~/src/heroku/perloku/Hello$ /home/mjp/.cpanm/work/1346641575.18299/ExtUtils-MakeMaker-6.62/t/lib/Test/Simple.pm
+ ...
+ /usr/local/share/perl/5.14.2/Catalyst/Plugin/Static/Simple.pm
+ ...
+mjp@uberwald:~/src/heroku/perloku/Hello$ script/hello_server.pl -r &
+ Can't locate Catalyst/Plugin/ConfigLoader.pm in @INC (@INC contains: /home/mjp/src/heroku/perloku/Hello/script/../lib /etc/perl /usr/local/lib/perl/5.14.2 /usr/local/share/perl/5.14.2 /usr/lib/perl5 /usr/share/perl5 /usr/lib/perl/5.14 /usr/share/perl/5.14 /usr/local/lib/site_perl .) at /usr/share/perl5/Module/Runtime.pm line 317.
+ ...
+
+mjp@uberwald:~/src/heroku/perloku/Hello$ sudo cpan
+ ...
+ cpan[1]> install "Catalyst::Plugin::ConfigLoader"
+ ...
+ cpan[2]> quit
+ ...
+mjp@uberwald:~/src/heroku/perloku/Hello$ script/hello_server.pl -r &
+ Can't locate Catalyst/Action/RenderView.pm in @INC (@INC contains: /home/mjp/src/heroku/perloku/Hello/script/../lib /etc/perl /usr/local/lib/perl/5.14.2 /usr/local/share/perl/5.14.2 /usr/lib/perl5 /usr/share/perl5 /usr/lib/perl/5.14 /usr/share/perl/5.14 /usr/local/lib/site_perl .) at /usr/share/perl5/Module/Runtime.pm line 317.
+ ...
+mjp@uberwald:~/src/heroku/perloku/Hello$ sudo cpan
+ cpan[1]> install "Catalyst::Action::RenderView"
+
+mjp@uberwald:~/src/heroku/perloku/Hello$ script/hello_server.pl -r &
+ [debug] Debug messages enabled
+ [debug] Statistics enabled
+ [debug] Loaded plugins:
+ .--------------------------------------------------------------------------------------------------------------------------------------------------.
+ | Catalyst::Plugin::ConfigLoader  0.30                                                                                                             |
+ '--------------------------------------------------------------------------------------------------------------------------------------------------'
+ 
+ [debug] Loaded dispatcher "Catalyst::Dispatcher"
+ [debug] Loaded engine "Catalyst::Engine"
+ [debug] Found home "/home/mjp/src/heroku/perloku/Hello"
+ [debug] Loaded Config "/home/mjp/src/heroku/perloku/Hello/hello.conf"
+ [debug] Loaded components:
+ .---------------------------------------------------------------------------------------------------------------------------------------+----------.
+ | Class                                                                                                                                 | Type     |
+ +---------------------------------------------------------------------------------------------------------------------------------------+----------+
+ | Hello::Controller::Root                                                                                                               | instance |
+ '---------------------------------------------------------------------------------------------------------------------------------------+----------'
+ 
+ [debug] Loaded Private actions:
+ .------------------------------------+-----------------------------------------------------------------------+-------------------------------------.
+ | Private                            | Class                                                                 | Method                              |
+ +------------------------------------+-----------------------------------------------------------------------+-------------------------------------+
+ | /default                           | Hello::Controller::Root                                               | default                             |
+ | /end                               | Hello::Controller::Root                                               | end                                 |
+ | /index                             | Hello::Controller::Root                                               | index                               |
+ '------------------------------------+-----------------------------------------------------------------------+-------------------------------------'
+ 
+ [debug] Loaded Path actions:
+ .------------------------------------------------------------------------+-------------------------------------------------------------------------.
+ | Path                                                                   | Private                                                                 |
+ +------------------------------------------------------------------------+-------------------------------------------------------------------------+
+ | /                                                                      | /index                                                                  |
+ | /...                                                                   | /default                                                                |
+ '------------------------------------------------------------------------+-------------------------------------------------------------------------'
+ 
+ [info] Hello powered by Catalyst 5.90014
+ HTTP::Server::PSGI: Accepting connections at http://0:3000/
+
+mjp@uberwald:~/src/heroku/perloku/Hello$ #vi ~/src/heroku/perloku/Hello/lib/Hello/Controller/Root.pm
+ ...
+ sub index :Path :Args(0) {
+     my ( $self, $c ) = @_;
+     $c->response->body( $c->welcome_message );
+ }
+ ...
+
+ Saw changes to the following files:
+  - /home/mjp/src/heroku/perloku/Hello/lib/Hello/Controller/Root.pm (modify)
+ 
+ Attempting to restart the server
+ ...
+
+  mjp@uberwald:~/src/heroku/perloku/Hello$ #vi ~/src/heroku/perloku/Hello/lib/Hello/Controller/Root.pm
+      sub hello :Global {
+          my ( $self, $c ) = @_;
+          $c->response->body("Hello, World!");
+      }
+
+ ...
+ Saw changes to the following files:
+  - /home/mjp/src/heroku/perloku/Hello/lib/Hello/Controller/Root.pm (modify)
+ ...
+ [debug] Loaded Private actions:
+ .------------------------------------+-----------------------------------------------------------------------+-------------------------------------.
+ | Private                            | Class                                                                 | Method                              |
+ +------------------------------------+-----------------------------------------------------------------------+-------------------------------------+
+ | /default                           | Hello::Controller::Root                                               | default                             |
+ | /end                               | Hello::Controller::Root                                               | end                                 |
+ | /index                             | Hello::Controller::Root                                               | index                               |
+ | /hello                             | Hello::Controller::Root                                               | hello                               |
+ '------------------------------------+-----------------------------------------------------------------------+-------------------------------------'
+ 
+ [debug] Loaded Path actions:
+ .------------------------------------------------------------------------+-------------------------------------------------------------------------.
+ | Path                                                                   | Private                                                                 |
+ +------------------------------------------------------------------------+-------------------------------------------------------------------------+
+ | /                                                                      | /index                                                                  |
+ | /...                                                                   | /default                                                                |
+ | /hello/...                                                             | /hello                                                                  |
+ ...
+
+  mjp@uberwald:~/src/heroku/perloku/Hello$ curl "http://localhost:3000/hello"
+   Hello, World!
+
+ ...
+ [info] *** Request 1 (0.001/s) [20485] [Mon Sep  3 05:37:35 2012] ***
+ [debug] Path is "hello"
+ [debug] "GET" request for "hello" from "127.0.0.1"
+ [debug] Response Code: 200; Content-Type: text/html; charset=utf-8; Content-Length: 13
+ [info] Request took 0.004108s (243.427/s)
+ .----------------------------------------------------------------------------------------------------------------------------------+-----------.
+ | Action                                                                                                                           | Time      |
+ +----------------------------------------------------------------------------------------------------------------------------------+-----------+
+ | /hello                                                                                                                           | 0.000178s |
+ | /end                                                                                                                             | 0.000263s |
+ '----------------------------------------------------------------------------------------------------------------------------------+-----------'
